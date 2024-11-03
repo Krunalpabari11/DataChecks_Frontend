@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import { Calendar } from 'lucide-react';
 import ApexCharts from 'react-apexcharts';
@@ -22,29 +22,7 @@ const getMonthNumber = (monthName: string): number => {
   return months[monthName] || 0;
 };
 
-const SparklineCard = ({ title, value, chartData, color = '#255aee' }) => {
 
-  const series = [{
-    data: chartData
-  }];
-
-  return (
-    <div className="bg-gray-800 rounded-lg p-6">
-      <div className="mb-4">
-        <h2 className="text-sm text-gray-400">{title}</h2>
-        <div className="text-2xl font-bold text-white">${value.toLocaleString()}</div>
-      </div>
-      <div className="h-16">
-        <ApexCharts
-          options={options}
-          series={series}
-          type="line"
-          height="100%"
-        />
-      </div>
-    </div>
-  );
-};
 
 function App() {
   const [startDate, setStartDate] = useState<string>('');
