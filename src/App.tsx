@@ -279,6 +279,38 @@ function App() {
             />
           </div>
 
+          <div className="bg-gray-800 rounded-lg p-6">
+            <h2 className="text-xl font-bold text-white mb-4">Adult Visitors</h2>
+            <div className="text-3xl font-bold text-white mb-2">
+              {totalStats.adults.toLocaleString()}
+            </div>
+            <div className="text-sm text-gray-400 mb-4">Total adult visitors</div>
+            <ApexCharts
+              options={{
+                chart: {
+                  type: 'area',
+                  toolbar: { show: false },
+                  sparkline: { enabled: true }
+                },
+                stroke: { curve: 'smooth', width: 2 },
+                fill: {
+                  type: 'gradient',
+                  gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0.2
+                  }
+                }
+              }}
+              series={[{
+                name: 'Adults',
+                data: filteredData.map(d => d.adults)
+              }]}
+              type="area"
+              height={120}
+            />
+          </div>
+
 
         </div>
       </div>
