@@ -250,6 +250,35 @@ function App() {
             />
           </div>
 
+          <div className="bg-gray-800 rounded-lg p-6">
+            <h2 className="text-xl font-bold text-white mb-4">Top 10 Countries</h2>
+            <ApexCharts
+              options={{
+                chart: {
+                  type: 'bar',
+                  toolbar: { show: false },
+                  foreColor: '#9CA3AF'
+                },
+                plotOptions: {
+                  bar: {
+                    borderRadius: 4,
+                    horizontal: true,
+                  }
+                },
+                dataLabels: { enabled: false },
+                xaxis: {
+                  categories: countryData.map(d => d.country)
+                },
+              }}
+              series={[{
+                name: 'Visitors',
+                data: countryData.map(d => d.visitors)
+              }]}
+              type="bar"
+              height={350}
+            />
+          </div>
+
 
         </div>
       </div>
